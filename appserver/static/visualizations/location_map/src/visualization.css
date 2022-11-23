@@ -1,0 +1,16 @@
+/*
+ * CSS rules for visualization.
+ * Class namespacing is good practice.
+ */
+
+@import "~font-awesome/css/font-awesome.css";
+@import "~Leaflet.vector-markers/dist/leaflet-vector-markers.css";
+
+.location_map [class*=" icon-"]:before, .location_map [class^=icon-]:before {
+    font-family: Fontawesome !important;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,29 @@
+<dashboard version="1.1">
+  <label>sample</label>
+  <row>
+    <panel>
+      <title>title</title>
+      <viz type="viz_location_map.location_map">
+        <title>sub title</title>
+        <search>
+          <query>| inputlookup sample.csv
+| eval icon="truck"
+| eval icon = case(name=="A1", "truck", name=="B1", "plane", name=="C1", "car")
+| eval color = case(name=="A1", "blue", name=="B1", "green", name=="C1", "red")
+| table _time lat lng name icon color</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="trellis.enabled">0</option>
+        <option name="trellis.scales.shared">1</option>
+        <option name="trellis.size">medium</option>
+        <option name="viz_location_map.location_map.overlayKmlUrl">/en-US/static/app/viz_location_map/tokyo.kml</option>
+        <option name="viz_location_map.location_map.tileLayerAttribution">Map data &amp;copy;&lt;a href="https://openstreetmap.org"&gt;OpenStreetMap&lt;/a&gt;</option>
+        <option name="viz_location_map.location_map.tileLayerUrl">https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png</option>
+      </viz>
+    </panel>
+  </row>
+</dashboard>

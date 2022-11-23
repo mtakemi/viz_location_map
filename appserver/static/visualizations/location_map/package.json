@@ -1,0 +1,30 @@
+{
+  "name": "location_map",
+  "version": "1.0.0",
+  "description": "Visualization app..",
+  "main": "visualization.js",
+  "scripts": {
+    "build": "$SPLUNK_HOME/bin/splunk cmd node ./node_modules/webpack/bin/webpack.js",
+    "devbuild": "$SPLUNK_HOME/bin/splunk cmd node ./node_modules/webpack/bin/webpack.js --progress",
+    "watch": "$SPLUNK_HOME/bin/splunk cmd node ./node_modules/webpack/bin/webpack.js -d --watch --progress"
+  },
+  "author": "m.takemi",
+  "license": "MIT",
+  "devDependencies": {
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.11.2",
+    "style-loader": "^0.23.1",
+    "url-loader": "^0.6.2",
+    "webpack": "^1.12.6"
+  },
+  "dependencies": {
+    "bootstrap": "^3.4.1",
+    "font-awesome": "^4.7.0",
+    "jquery": "^2.2.0",
+    "leaflet": "^1.9.2",
+    "leaflet-kml": "^1.0.1",
+    "Leaflet.vector-markers": "^0.0.6",
+    "underscore": "^1.8.3"
+  }
+}
