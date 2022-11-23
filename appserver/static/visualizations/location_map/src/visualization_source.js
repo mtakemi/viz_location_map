@@ -86,9 +86,9 @@ function(
       if(!rows.length) return
 
       // Draw something here
-      console.log(config)
-      console.log(data)
-      console.log(L)
+      //console.log(config)
+      //console.log(data)
+      //console.log(L)
 
       let tileUrl = this._getProperty(config, 'tileLayerUrl')
       let tileAttribution = this._getProperty(config, 'tileLayerAttribution')
@@ -102,28 +102,28 @@ function(
       //for(let n1 = 0; n1 < rows.length; ++n1){
         // _time, lat, lng, name, icon, color
         console.log(v)
-	let _time = v[0];
-	let latlng = new L.LatLng(parseFloat(v[1]), parseFloat(v[2]), 0);
-	let name = v[3];
-	let icon = v[4];
-	let color = v[5];
-	if(obj.hasOwnProperty(name)){
-	  obj[name].push({
-	    'time': _time,
-	    'latlng': latlng,
-	    'icon': icon,
-	    'color': color
-	  })
-	} else {
-	  obj[name] = [{
-	    'time': _time,
-	    'latlng': latlng,
-	    'icon': icon,
-	    'color': color
-	  }]
-	}
+	        let _time = v[0];
+	        let latlng = new L.LatLng(parseFloat(v[1]), parseFloat(v[2]), 0);
+	        let name = v[3];
+	        let icon = v[4];
+	        let color = v[5];
+	        if(obj.hasOwnProperty(name)){
+	            obj[name].push({
+	                'time': _time,
+	                'latlng': latlng,
+	                'icon': icon,
+	                'color': color
+	            })
+	        } else {
+	            obj[name] = [{
+	                'time': _time,
+	                'latlng': latlng,
+	                'icon': icon,
+	                'color': color
+	            }]
+	        }
       })
-      console.log(obj)
+      //console.log(obj)
 
       let self = this
 
