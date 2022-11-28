@@ -9,4 +9,19 @@
     <splunk-control-group label="Overlay KML file URL">
       <splunk-text-input name="{{VIZ_NAMESPACE}}.overlayKmlUrl" value=""></splunk-text-input>
     </splunk-control-group>
+    <splunk-control-group label="Max Zoom">
+      <splunk-text-input name="{{VIZ_NAMESPACE}}.maxZoom" value="18"></splunk-text-input>
+    </splunk-control-group>
+    <splunk-control-group label="Min Zoom">
+      <splunk-text-input name="{{VIZ_NAMESPACE}}.minZoom" value="0"></splunk-text-input>
+    </splunk-control-group>
+    <splunk-control-group label="Initial Zoom">
+      <splunk-text-input name="{{VIZ_NAMESPACE}}.initialZoom" value="15"></splunk-text-input>
+    </splunk-control-group>
+    <splunk-control-group label="Move to Last Location">
+      <splunk-radio-input name="{{VIZ_NAMESPACE}}.moveLastLocation" value="yes">
+        <option value="yes">yes</option>
+        <option value="no">no</option>
+      </splunk-radio-input>
+    </splunk-control-group>
 </form>
