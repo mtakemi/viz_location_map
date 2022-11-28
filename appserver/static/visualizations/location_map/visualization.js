@@ -73,6 +73,7 @@ define(["api/SplunkVisualizationBase","api/SplunkVisualizationUtils"], function(
 	  // Extend from SplunkVisualizationBase
 	  return SplunkVisualizationBase.extend({
 	    isInitialized: false,
+	    mapId: "",
 	    map: null,
 	    markers: [],
 	    polylines: [],
@@ -81,7 +82,8 @@ define(["api/SplunkVisualizationBase","api/SplunkVisualizationUtils"], function(
 	      SplunkVisualizationBase.prototype.initialize.apply(this, arguments);
 	      this.$el = $(this.el);
 	
-	      this.$el.append('<div id="map" class="location_map"></div>');
+	      this.mapId = "map_" + (new Date()).getTime();
+	      this.$el.append('<div id="' + this.mapId + '" class="location_map"></div>');
 	      
 	      // Initialization logic goes here
 	    },
@@ -102,7 +104,7 @@ define(["api/SplunkVisualizationBase","api/SplunkVisualizationUtils"], function(
 	      minZoom = minZoom || 0;
 	      initialZoom = initialZoom || 15;
 	
-	      this.map = L.map('map')
+	      this.map = L.map(this.mapId)
 	      L.tileLayer(
 	        tileUrl, {
 	          attribution: tileAttr,
@@ -233,7 +235,11 @@ define(["api/SplunkVisualizationBase","api/SplunkVisualizationUtils"], function(
 	    },
 	
 	    // Override to respond to re-sizing events
-	    reflow: function() {}
+	    reflow: function() {
+	      if(this.isInitialized && this.map){
+	        this.map.invalidateSize()
+	      }
+	    }
 	  });
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 

@@ -2398,7 +2398,7 @@ Version: 0.0.6
     font-family: Fontawesome !important;
 }
 
-#map {
+div[id^=map_] {
     width: 100%;
     height: 100%;
 }
