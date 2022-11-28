@@ -75,7 +75,6 @@ function(
 	          self.map.addLayer(track);
 	        });
       }
-      self.isInitialized = true
     },
 
     _getProperty(config, key, def){
@@ -167,7 +166,12 @@ function(
         self.markers.push(marker);
       });
 
-      if(moveLastLocation){
+      if(!self.isInitialized){
+        setTimeout(function(){
+          self.map.panTo(lastLocation);
+        }, 0);
+        self.isInitialized = true;
+      } else if(moveLastLocation){
         self.map.panTo(lastLocation);
       }
     },
