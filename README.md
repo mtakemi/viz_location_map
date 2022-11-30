@@ -6,6 +6,14 @@ I'm creating only to overlay kml file.
 
 # screenshot
 
+### query
+```
+source="http:sample" (index="main") lat != ""
+| eval icon = case(name=="A1", "truck", name=="B1", "plane", name=="C1", "car")
+| eval color = case(name=="A1", "blue", name=="B1", "green", name=="C1", "red")
+| table _time lat lon name icon color | sort _time
+```
+
 ![sample](./static/sample.png)
 
 
