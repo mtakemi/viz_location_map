@@ -10,4 +10,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: make tarball
-        run: tar zcvf viz_location_map.tgz .
+        run: tar zcvf ../viz_location_map.tgz --exclude=*.git  .
