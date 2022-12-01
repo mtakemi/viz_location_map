@@ -1,0 +1,13 @@
+name: splunk visualization package
+
+on:
+    push:
+      branches: [main, github-actions]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: make tarball
+        run: tar zcvf viz_location_map.tgz .
