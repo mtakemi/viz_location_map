@@ -9,5 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: make directory
+        run: mkdir .git_dist
       - name: make tarball
-        run: tar zcvf ../viz_location_map.tgz --exclude=*.git  .
+        run: tar zcvf .git_dist/viz_location_map.tgz --exclude=*.git .
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: product 
+          path: .git_dist
+
